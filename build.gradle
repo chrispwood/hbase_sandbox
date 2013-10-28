@@ -1,0 +1,29 @@
+apply plugin: 'java'
+defaultTasks 'clean', 'build'
+buildDir 'target'
+
+mainClassName = 'org.wood.hadoop.examples'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.apache.hadoop:hadoop-core:0.2+'
+  compile 'org.apache.hbase:hbase:0.94.12'
+  compile 'org.apache.hbase:hbase-client:0.9+'
+  compile 'org.apache.hbase:hbase-common:0.9+'
+  runtime 'org.apache.hadoop:hadoop-core:0.2+'
+  runtime 'org.apache.hbase:hbase:0.94.12'
+  runtime 'org.apache.hbase:hbase-client:0.9+'
+  runtime 'org.apache.hbase:hbase-common:0.9+'
+}
+
+jar {
+  dependsOn configurations.runtime
+  from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+processResources {
+	from "src/resources"
+}
