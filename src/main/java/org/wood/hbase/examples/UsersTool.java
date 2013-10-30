@@ -37,6 +37,12 @@ public class UsersTool {
 			System.out.println("Successfully added user " + u);
 		}
 
+		if("delete".equals(args[0])) {
+			System.out.println("Deleting user...");
+			dao.deleteUser(args[1]);
+			System.out.println("Successfully deleted user " + args[1]);
+		}
+
 		if("list".equals(args[0])) {
 			for(User u : dao.getUsers()) {
 				System.out.println(u);

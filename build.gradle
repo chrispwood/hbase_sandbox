@@ -9,6 +9,10 @@ repositories {
 }
 
 dependencies {
+  compile 'joda-time:joda-time:2.3'
+  compile 'org.apache.hadoop:hadoop-core:1.0.3'
+  compile 'org.apache.hbase:hbase:0.94.1'
+  /*
   compile 'org.apache.hadoop:hadoop-core:0.2+'
   compile 'org.apache.hbase:hbase:0.94.12'
   compile 'org.apache.hbase:hbase-client:0.9+'
@@ -17,6 +21,7 @@ dependencies {
   runtime 'org.apache.hbase:hbase:0.94.12'
   runtime 'org.apache.hbase:hbase-client:0.9+'
   runtime 'org.apache.hbase:hbase-common:0.9+'
+  */
 }
 
 jar {

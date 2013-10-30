@@ -159,11 +159,9 @@ public class ActivitiesDao {
 
 		public Twit(Result result) {
 			this(
-				Arrays.copyOfRange(result.getRow(), 0, ShaUtils.SHA_LENGTH),
-				//CellUtil.cloneValue(result.getColumnLatestCell(TWITS_FAM, USERS_COL)),
+				result.getColumnLatest(TWITS_FAM, USERS_COL).getValue(),
 				Arrays.copyOfRange(result.getRow(), ShaUtils.SHA_LENGTH, ShaUtils.SHA_LENGTH + LONG_LENGTH),
 				result.getColumnLatest(TWITS_FAM, TWIT_COL).getValue()
-				//CellUtil.cloneValue(result.getColumnLatestCell(TWITS_FAM, TWIT_COL))
 			);
 		}
 
