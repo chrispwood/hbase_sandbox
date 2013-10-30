@@ -1,7 +1,7 @@
 *.class
-*/target/*
+*target/*
 */output/*
-*/.gradle
+.gradle
 .DS_Store
 
 # Package Files #
