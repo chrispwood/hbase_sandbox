@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+use strict;
+
+use File qw(chdir copy);
+
+my $script_dir = dirname(abs_path($0));
+$CWD = $script_dir;
+
+my @confs = ('hbase-site.xml','hbase-env.sh');
+my $hbaseHome = $ENV{'HBASE_HOME'}
+
+if(length($hbaseHome) > 0) {
+	map copy($_,"$ENV{'HBASE_HOME'}/conf") @confs;
+}
+else {
+	print "Error.  HBASE_HOME is not defined";
+}
+
